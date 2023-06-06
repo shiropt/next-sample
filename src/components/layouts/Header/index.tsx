@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 
 import { FC } from "react";
 import { styled } from "styled-components";
@@ -8,10 +9,18 @@ type Props = {
 };
 
 export const Header: FC<Props> = ({ children }) => {
+  const router = useRouter();
+
   return (
     <HeaderWrapper>
-      <div>Title</div>
-      <div>{children}</div>
+      <LeftContent
+        onClick={() => {
+          router.push("/");
+        }}
+      >
+        Title
+      </LeftContent>
+      <RightContent>{children}</RightContent>
     </HeaderWrapper>
   );
 };
@@ -26,4 +35,10 @@ const HeaderWrapper = styled.header`
   padding: 16px;
   display: flex;
   justify-content: space-between;
+`;
+const LeftContent = styled.div`
+  cursor: pointer;
+`;
+const RightContent = styled.div`
+  display: block;
 `;
