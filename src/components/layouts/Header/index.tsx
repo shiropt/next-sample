@@ -1,15 +1,13 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 import { FC } from "react";
 import { styled } from "styled-components";
+import { Button } from "../../atoms/Button";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export const Header: FC<Props> = ({ children }) => {
+export const Header: FC = () => {
   const router = useRouter();
+  const path = usePathname();
 
   return (
     <HeaderWrapper>
@@ -18,9 +16,31 @@ export const Header: FC<Props> = ({ children }) => {
           router.push("/");
         }}
       >
-        Title
+        LOGO
       </LeftContent>
-      <RightContent>{children}</RightContent>
+      <div>
+        <div>
+          {path !== "/signup" && (
+            <ButtonWrapper
+              onClick={() => {
+                router.push("/signup");
+              }}
+              variant="Important"
+            >
+              新規登録
+            </ButtonWrapper>
+          )}
+          {path !== "/signin" && (
+            <ButtonWrapper
+              onClick={() => {
+                router.push("/signin");
+              }}
+            >
+              ログイン
+            </ButtonWrapper>
+          )}
+        </div>
+      </div>
     </HeaderWrapper>
   );
 };
@@ -39,6 +59,7 @@ const HeaderWrapper = styled.header`
 const LeftContent = styled.div`
   cursor: pointer;
 `;
-const RightContent = styled.div`
-  display: block;
+
+const ButtonWrapper = styled(Button)`
+  margin: 0 8px;
 `;
