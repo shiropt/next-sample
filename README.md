@@ -35,12 +35,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Todo
 
-- [ ] hygen
+- [x] plop
 - [ ] husky
-- [ ] storybook
+- [x] storybook
 - [ ] chromatic
 - [ ] vercel
-- [ ] jest
+- [x] jest
 - [ ] msw
 - [ ] swr
 - [ ] Redux
