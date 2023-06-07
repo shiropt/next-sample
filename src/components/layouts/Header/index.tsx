@@ -16,7 +16,7 @@ export const Header: FC = () => {
           router.push("/");
         }}
       >
-        LOGO
+        TITLE
       </LeftContent>
       <div>
         <div>
