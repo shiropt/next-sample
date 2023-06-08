@@ -18,29 +18,27 @@ export const Header: FC = () => {
       >
         LOGO
       </LeftContent>
-      <div>
-        <div>
-          {path !== "/signup" && (
-            <ButtonWrapper
-              onClick={() => {
-                router.push("/signup");
-              }}
-              variant="Important"
-            >
-              新規登録
-            </ButtonWrapper>
-          )}
-          {path !== "/signin" && (
-            <ButtonWrapper
-              onClick={() => {
-                router.push("/signin");
-              }}
-            >
-              ログイン
-            </ButtonWrapper>
-          )}
-        </div>
-      </div>
+      <RightContent>
+        {path !== "/signup" && (
+          <ButtonWrapper
+            onClick={() => {
+              router.push("/signup");
+            }}
+            variant="Important"
+          >
+            新規登録
+          </ButtonWrapper>
+        )}
+        {path !== "/signin" && (
+          <ButtonWrapper
+            onClick={() => {
+              router.push("/signin");
+            }}
+          >
+            ログイン
+          </ButtonWrapper>
+        )}
+      </RightContent>
     </HeaderWrapper>
   );
 };
@@ -49,6 +47,7 @@ Header.displayName = "Header";
 const HeaderWrapper = styled.header`
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 80px;
   color: #fff;
@@ -58,6 +57,9 @@ const HeaderWrapper = styled.header`
 `;
 const LeftContent = styled.div`
   cursor: pointer;
+`;
+const RightContent = styled.div`
+  padding-right: 16px;
 `;
 
 const ButtonWrapper = styled(Button)`
