@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { {{properCase name}} } from ".";
+import { SigninForm } from ".";
 import userEvent from "@testing-library/user-event";
 
 test("", () => {
-  render(<{{properCase name}} />);
- // expect(screen.getByRole("")).toBeInTheDocument();
+  render(<SigninForm />);
+  // expect(screen.getByRole("")).toBeInTheDocument();
 });
