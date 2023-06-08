@@ -10,7 +10,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Buttons: Story = {
+export const ButtonStory: Story = {
   render: () => (
     <div>
       <div>

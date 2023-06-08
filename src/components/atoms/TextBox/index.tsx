@@ -20,7 +20,7 @@ export const TextBox = forwardRef<HTMLInputElement, Props>((props, ref) => {
     : colors.darkestGray;
 
   return (
-    <>
+    <Wrapper>
       <Label color={color}>{props.label}</Label>
       <Input
         color={color}
@@ -30,11 +30,15 @@ export const TextBox = forwardRef<HTMLInputElement, Props>((props, ref) => {
         onBlur={handleBlur}
       />
       <Error>{props.error}</Error>
-    </>
+    </Wrapper>
   );
 });
 
 TextBox.displayName = "TextBox";
+
+const Wrapper = styled.div`
+  margin-bottom: 24px;
+`;
 
 const Input = styled.input<{ color: string }>`
   border: none;
@@ -50,10 +54,10 @@ const Input = styled.input<{ color: string }>`
 const Label = styled.label<{ color: string }>`
   color: ${({ color }) => color};
   display: block;
-  margin-bottom: 4px;
   font-size: 14px;
 `;
 const Error = styled.p`
   margin: 4px;
+  font-size: 12px;
   color: ${colors.error};
 `;
