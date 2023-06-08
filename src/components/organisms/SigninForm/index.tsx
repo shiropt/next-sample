@@ -20,13 +20,13 @@ export const SigninForm: FC<Props> = (props) => {
     },
   });
   return (
-    <Form onSubmit={handleSubmit}>
-      <TextBoxWrapper
+    <Form name="signin" onSubmit={handleSubmit}>
+      <TextBox
         label="Eメール"
         error={touched.email ? errors.email : ""}
         {...getFieldProps("email")}
       />
-      <TextBoxWrapper
+      <TextBox
         label="パスワード"
         error={touched.password ? errors.password : ""}
         {...getFieldProps("password")}
@@ -42,15 +42,11 @@ SigninForm.displayName = "SigninForm";
 
 const Form = styled.form`
   width: 488px;
-  /* height: 220px; */
-  /* padding: 16px; */
   box-sizing: border-box;
-`;
-const TextBoxWrapper = styled(TextBox)`
-  /* margin-bottom: 24px; */
 `;
 
 const ButtonWrapper = styled(Button)`
-  /* margin-top: 24px; */
+  margin-top: 16px;
   width: 100%;
+  height: 48px;
 `;
