@@ -5,10 +5,12 @@ import { useFormik } from "formik";
 import { TextBox } from "../../atoms/TextBox";
 import { schemaObjects } from "../../../constants/validate";
 import { Button } from "../../atoms/Button";
+import { useAuth } from "../../../libs/firebase/auth";
 
 type Props = {};
 
 export const SignupForm: FC<Props> = (props) => {
+  const { signup } = useAuth();
   const { getFieldProps, errors, touched, handleSubmit } = useFormik({
     initialValues: {
       name: "",
@@ -16,8 +18,9 @@ export const SignupForm: FC<Props> = (props) => {
       password: "",
     },
     validationSchema: schemaObjects.signup,
-    onSubmit: (values) => {
-      console.log({ values });
+    onSubmit: async (values) => {
+      const response = await signup(values.name, values.email, values.password);
+      console.log({ response });
     },
   });
   return (

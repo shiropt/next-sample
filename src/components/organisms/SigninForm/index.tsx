@@ -5,18 +5,22 @@ import { useFormik } from "formik";
 import { TextBox } from "../../atoms/TextBox";
 import { schemaObjects } from "../../../constants/validate";
 import { Button } from "../../atoms/Button";
+import { useAuth } from "../../../libs/firebase/auth";
 
 type Props = {};
 
 export const SigninForm: FC<Props> = (props) => {
+  const { signin } = useAuth();
+
   const { getFieldProps, errors, touched, handleSubmit } = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     validationSchema: schemaObjects.signin,
-    onSubmit: (values) => {
-      console.log({ values });
+    onSubmit: async (values) => {
+      const res = await signin(values.email, values.password);
+      console.log(res.user.displayName);
     },
   });
   return (
