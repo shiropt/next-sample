@@ -3,6 +3,9 @@ import { styled } from "styled-components";
 import { Header } from "../components/layouts/Header";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { ConfirmModal } from "../components/layouts/ConfirmModal";
+import { Provider } from "react-redux";
+import { store } from "../libs/redux";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,9 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={inter.className}>
-        <Header />
-        <Container>{children}</Container>
+      <body id="root" className={inter.className}>
+        <Provider store={store}>
+          <Header />
+          <Container>{children}</Container>
+          <ConfirmModal />
+        </Provider>
       </body>
     </html>
   );

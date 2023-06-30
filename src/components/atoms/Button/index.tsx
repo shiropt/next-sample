@@ -42,6 +42,7 @@ const ButtonWrapper = styled.button<Props>`
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
+  white-space: nowrap;
   background-color: ${({ variant }) => {
     switch (variant) {
       case "Secondary":
@@ -52,8 +53,10 @@ const ButtonWrapper = styled.button<Props>`
         return `${colors.gray}`;
     }
   }};
-  color: ${({ variant }) => (variant === "Important" ? "rgb(61, 69, 73)" : `${colors.white}`)};
-  border: ${({ variant }) => (variant === "Secondary" ? `2px solid ${colors.white}` : "none")};
+  color: ${({ variant }) =>
+    variant === "Important" ? "rgb(61, 69, 73)" : `${colors.white}`};
+  border: ${({ variant }) =>
+    variant === "Secondary" ? `2px solid ${colors.white}` : "none"};
   &:hover {
     background: ${({ variant }) => {
       switch (variant) {
@@ -66,7 +69,9 @@ const ButtonWrapper = styled.button<Props>`
       }
     }};
     color: ${({ variant }) =>
-      variant === "Secondary" || variant === "Important" ? `${colors.black}` : `${colors.white}`};
+      variant === "Secondary" || variant === "Important"
+        ? `${colors.black}`
+        : `${colors.white}`};
   }
   &:disabled {
     opacity: 0.6;
