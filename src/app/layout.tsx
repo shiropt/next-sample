@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 import { Header } from "../components/layouts/Header";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { ConfirmModal } from "../components/layouts/ConfirmModal";
 import { Provider } from "react-redux";
 import { store } from "../libs/redux";
 
@@ -20,7 +19,6 @@ export default function RootLayout({
         <Provider store={store}>
           <Header />
           <Container>{children}</Container>
-          <ConfirmModal />
         </Provider>
       </body>
     </html>
