@@ -9,22 +9,27 @@ import { useAuth } from "../../../libs/firebase/auth";
 
 type Props = {};
 
-export const SigninForm: FC<Props> = (props) => {
-  const { signin } = useAuth();
-
+export const SignupForm: FC<Props> = (props) => {
+  const { signup } = useAuth();
   const { getFieldProps, errors, touched, handleSubmit } = useFormik({
     initialValues: {
+      name: "",
       email: "",
       password: "",
     },
-    validationSchema: schemaObjects.signin,
+    validationSchema: schemaObjects.signup,
     onSubmit: async (values) => {
-      const res = await signin(values.email, values.password);
-      console.log(res.user.displayName);
+      const response = await signup(values.name, values.email, values.password);
+      console.log({ response });
     },
   });
   return (
     <Form name="signin" onSubmit={handleSubmit}>
+      <TextBox
+        label="名前"
+        error={touched.name ? errors.name : ""}
+        {...getFieldProps("name")}
+      />
       <TextBox
         label="Eメール"
         error={touched.email ? errors.email : ""}
@@ -36,13 +41,13 @@ export const SigninForm: FC<Props> = (props) => {
         {...getFieldProps("password")}
       />
       <ButtonWrapper variant="Important" type="submit">
-        ログイン
+        登録
       </ButtonWrapper>
     </Form>
   );
 };
 
-SigninForm.displayName = "SigninForm";
+SignupForm.displayName = "SigninForm";
 
 const Form = styled.form`
   width: 488px;

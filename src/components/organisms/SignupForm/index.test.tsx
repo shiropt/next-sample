@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { SigninForm } from ".";
+import { SignupForm } from ".";
 import userEvent from "@testing-library/user-event";
 
-test("signup from レンダリングテスト", () => {
-  render(<SigninForm />);
+test("signin from レンダリングテスト", () => {
+  render(<SignupForm />);
   expect(screen.getByRole("form")).toBeInTheDocument();
 });
