@@ -8,6 +8,11 @@ import { store } from "../libs/redux";
 
 const inter = Inter({ subsets: ["latin"] });
 
+if (process.env.NODE_ENV === "development") {
+  const mockServer = () => import("../mocks/worker");
+  mockServer();
+}
+
 export default function RootLayout({
   children,
 }: {
