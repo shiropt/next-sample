@@ -1,12 +1,12 @@
-async function getArtist(data: any) {
-  const res = await fetch("http://localhost:3001/match", {
-    next: {
-      revalidate: 1,
-    },
-  });
-  const json = await res.json();
-  return json;
-}
+// async function getArtist(data: any) {
+//   const res = await fetch("http://localhost:3001/match", {
+//     next: {
+//       revalidate: 1,
+//     },
+//   });
+//   const json = await res.json();
+//   return json;
+// }
 
 export default async function Home(data: any) {
   type Card = {
@@ -24,21 +24,21 @@ export default async function Home(data: any) {
     section: number;
     matches: Card[];
   };
-  const res = await getArtist("(´・ω・｀)ショボーン");
-  const games: Game[] = res;
-  console.log(
-    games.map((game) => {
-      return game.matches.map((card) => {
-        return card;
-      });
-    })
-  );
+  // const res = await getArtist("(´・ω・｀)ショボーン");
+  // const games: Game[] = res;
+  // console.log(
+  //   games.map((game) => {
+  //     return game.matches.map((card) => {
+  //       return card;
+  //     });
+  //   })
+  // );
 
   return (
     <main>
       <h1>WellCome to GoalTime!</h1>
       <div>
-        {games.map((game, i) => {
+        {/* {games.map((game, i) => {
           return (
             <div key={i}>
               <h2> {game.date}</h2>
@@ -62,8 +62,8 @@ export default async function Home(data: any) {
                 );
               })}
             </div>
-          );
-        })}
+          ); */}
+        {/* })} */}
       </div>
     </main>
   );
