@@ -1,16 +1,9 @@
-"use client";
 import { SignupForm } from "../../../components/organisms/SignupForm";
-import { styled } from "styled-components";
-export default function Home() {
+export default function Signup() {
   return (
     <div>
-      <Title>アカウントを作成</Title>
+      <h1>アカウントを作成</h1>
       <SignupForm />
     </div>
   );
 }
-
-const Title = styled.h1`
-  padding: 24px;
-  text-align: center;
-`;
