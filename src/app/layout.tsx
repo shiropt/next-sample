@@ -1,10 +1,8 @@
-"use client";
-import { styled } from "styled-components";
 import { Header } from "../components/layouts/Header";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { Provider } from "react-redux";
-import { store } from "../libs/redux";
+import Provider from "./provider";
+import { Container } from "../components/layouts/Container";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body id="root" className={inter.className}>
-        <Provider store={store}>
+        <Provider>
           <Header />
           <Container>{children}</Container>
         </Provider>
@@ -24,6 +22,3 @@ export default function RootLayout({
     </html>
   );
 }
-const Container = styled.div`
-  margin-top: 80px;
-`;

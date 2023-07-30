@@ -1,17 +1,10 @@
-"use client";
-import { styled } from "styled-components";
 import { SigninForm } from "../../../components/organisms/SigninForm";
 
-export default function Home() {
+export default function Signin() {
   return (
     <div>
-      <Title>ログイン</Title>
+      <h1>ログイン</h1>
       <SigninForm />
     </div>
   );
 }
-
-const Title = styled.h1`
-  padding: 24px;
-  text-align: center;
-`;

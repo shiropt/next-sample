@@ -6,11 +6,11 @@ const preview: Preview = {
       appDirectory: true,
     },
     backgrounds: {
-      default: "dark",
+      default: "default",
       values: [
         {
-          name: "dark",
-          value: "rgb(12, 22, 28)",
+          name: "default",
+          value: "#f8f9fa",
         },
       ],
     },
